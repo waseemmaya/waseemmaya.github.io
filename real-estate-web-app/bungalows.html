@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Real State Web App</title>
+	<!-- Firebase CDN -->
+	<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+
+	<!-- For Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+	<!-- For Social Icon -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+	<!-- Main CSS File -->
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+
+<body onload="catBungalow()">
+
+		<header>
+				<h2><a href="index.html">Sheikh Real Estate</a></h2>
+				<nav>
+					<li><a href="index.html">Home</a></li>
+					<li>
+						<div class="dropdown">
+							<button class="dropbtn" onclick="options()">Category
+								<i class="fa fa-caret-down"></i>
+							</button>
+							<div class="dropdown-content" id="myDropdown">
+								<a href="houses.html">Houses</a>
+								<a href="bungalows.html">Bungalows</a>
+								<a href="flats.html">Flats</a>
+		
+							</div>
+						</div>
+					</li>
+		
+					<li><a href="about.html">About</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="login.html">Login</a></li>
+				</nav>
+			</header>
+
+
+	<section class="hero">
+		<div class="background-image" style="background-image: url(assets/img/Bungalow.jpg);"></div>
+		<h1>Bungalows</h1>
+		<h3>We provide you the best Bungalows in Karachi</h3>
+		<div class="social">
+			<a href="https://www.facebook.com/shehroz.a.khans"><i class="fa fa-facebook icon" aria-hidden="false" style="font-size:30px;margin-right:6px"></i></a>
+			<a href="https://www.instagram.com/Shehrozlive/"><i class="fa fa-instagram icon" aria-hidden="false" style="font-size:30px;margin-right:6px"></i></a>
+			<a href="https://twitter.com/shehrozlive"><i class="fa fa-twitter icon" aria-hidden="false" style="font-size:30px;margin-right:6px"></i></a>
+		</div>
+	</section>
+
+
+
+	<section class="features">
+		<h3 class="title">Features Bungalows</h3>
+		<p>Choose your favourite wide collection of Bungalows from our features category, we welcome you to own your own bungalow. </p>
+		<hr>
+		<ul class="grid" id="catWise">
+
+		</ul>
+		</div>
+	</section>
+
+
+	
+
+	<section class="contact">
+		<h3 class="title">Join our newsletter</h3>
+		<p>Keep up-to-date with latest Real Estate property news and events, enter your e-mail address and subscribe to our newsletter.</p>
+		<hr>
+
+		<form>
+			<input type="email" name="email" placeholder="Email">
+			<a href="javascript:void(0)" onclick="sendMail()" class="btn">Subscribe now</a>
+		</form>
+	</section>
+
+	<footer>
+		<ul>
+			<li><a href="https://www.facebook.com/shehroz.a.khans"><i class="fa fa-facebook"></i></a></li>
+			<li><a href="https://twitter.com/shehrozlive"><i class="fa fa-twitter"></i></a></li>
+			<li><a href="https://www.instagram.com/Shehrozlive/"><i class="fa fa-instagram"></i></a></li>
+		</ul>
+		<p>Made by <a href="index.html" target="_blank">Shehroz and Team</a>.</p>
+	</footer>
+
+	<!-- Main Firebase File -->
+	<script src="assets/js/wm_fire.js"></script>
+
+	<!-- Main Javascript File -->
+	<script src="assets/js/wm_main.js"></script>
+	<!-- MAP CDN -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk9KNSL1jTv4MY9Pza6w8DJkpI_nHyCnk"></script>
+	<!-- Google Map -->
+	<script src="assets/js/map-active.js"></script>
+
+
+</body>
+
+</html>

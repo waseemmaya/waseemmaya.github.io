@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Post</title>
+</head>
+<body>
+        <div id="nav">
+                <ul class="nav justify-content-center bg-light">
+                        <li class="nav-item">
+                                <a class="btn btn-primary mt-3 mr-3" href="../index.html">Main Website</a>
+                            </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary mt-3 mr-3 ml-3" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary mt-3 ml-3" href="post.html">Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary mt-3 ml-3" href="mail.html">Mail</a>
+                    </li>
+                </ul>
+            </div>
+
+    <div class="container">
+        <form onsubmit="return uploadImages()">
+            <div class="form-group mt-3">
+                <label for="Ad Title">Ad Title</label>
+                <input required type="text" class="form-control" id="name" placeholder="Ad Title">
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="Price Unit">Price Unit</label>
+                    <select required class="custom-select" id="priceUnit">
+                        <option value="Lac">Lac</option>
+                        <option value="Crore">Crore</option>
+                        <option value="Thousand">Thousand</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="Price">Price</label>
+                    <input type="text" onchange="showMore()" required id="price" class="form-control" placeholder="Price">
+                </div>
+                <div class="col">
+                    <label for="Purpose">Purpose</label>
+                    <select required class="custom-select" id="purpose">
+                        <option value="For Sale">For Sale</option>
+                        <option value="For Rent">For Rent</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="Category">Category</label>
+                    <select required class="custom-select" id="category">
+                        <option value="Home">Home</option>
+                        <option value="Flat">Flat</option>
+                        <option value="Bungalow">Bungalow</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="Bedroom">Bedroom</label>
+                    <select required class="custom-select" id="bedroom">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5+">5+</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="Bathroom">Bathroom</label>
+                    <select required class="custom-select" id="bathroom">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3+">3+</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row mb-3" id="more">
+                <div class="col">
+                    <label for="Floor Level">Floor Level</label>
+                    <select required class="custom-select" id="floor">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4+">4+</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="Area Unit">Area Unit</label>
+                    <select required class="custom-select" id="areaUnit">
+                        <option value="Square Feet">Square Feet</option>
+                        <option value="Square Yards">Square Yards</option>
+                        <option value="Square Meter">Square Meter</option>
+                        <option value="Marla">Marla</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="Area">Area</label>
+                    <input type="number" required id="area" class="form-control" placeholder="Area">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="Ad Description">Ad Description</label>
+                <textarea class="form-control" required id="description" rows="3" placeholder="Ad Description"></textarea>
+            </div>
+            <div class="form-group">
+                    <label for="Address">Address</label>
+                    <textarea class="form-control" required id="address" rows="2" placeholder="Address"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="Phone No">Phone No</label>
+                    <input type="tel" class="form-control" required id="phone" placeholder="Phone No">
+                </div>
+            <div class="form-group">
+                <label for="Google Map Link">Google Map Link</label>
+                <input required type="text" class="form-control" id="link" placeholder="Google Map Link for this Address.">
+            </div>
+            <div class="form-group">
+                <label for="Upload Images">Upload Images</label>
+                <input required type="file" multiple accept="image/*" class="form-control-file" id="images" />
+                <small id="passwordHelpBlock" class="form-text text-muted">Maximum 3 Images Allowed</small>
+                <!-- <span><button class="btn btn-primary mt-3 btn-sm" onclick="imgLoop()">Upload Images</button></span> -->
+            </div>
+            <div class="gallery" id="showImages"></div>
+            <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+    </div>
+    <script src="main/wm_fire.js"></script>
+
+
+</body>
+<script src="main/addPost.js"></script>
+<script>
+    $(function () {
+        // Multiple images preview in browser
+        var imagesPreview = function (input, placeToInsertImagePreview) {
+
+            if (input.files) {
+                var filesAmount = input.files.length;
+
+                for (i = 0; i < filesAmount; i++) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (event) {
+                        $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                    }
+
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+
+        };
+
+        $('#images').on('change', function () {
+            imagesPreview(this, 'div.gallery');
+        });
+    });
+
+    function showMore() {
+        document.getElementById('more').style.display = 'flex';
+    }
+
+</script>
+
+<style>
+    #more {
+        display: none;
+    }
+
+    body {
+        background-color: #fffefe;
+    }
+
+    label {
+        color: rgb(165, 123, 95);
+        font-weight: bold;
+        display: block;
+        width: 150px;
+        float: left;
+    }
+
+    img {
+        width: 180px;
+        height: 180px;
+        padding: 0.25rem;
+        background-color: #fff;
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+    }
+</style>
+
+</html>
